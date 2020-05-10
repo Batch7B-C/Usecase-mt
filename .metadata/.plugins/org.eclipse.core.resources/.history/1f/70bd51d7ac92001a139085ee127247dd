@@ -1,0 +1,100 @@
+package com.cts.project.controller;
+
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.apache.commons.math3.random.RandomDataGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import com.cts.project.config.ServiceConfig;
+import com.cts.project.model.Mockquiz;
+
+@RestController
+@RequestMapping("/mockquiz")
+public class MockquizController {
+	@Autowired
+	RestTemplate restTemplate;
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
+	
+	@Autowired
+	ServiceConfig configuration;
+	@GetMapping("/getAllEasy") 
+	public List<Mockquiz> easyLevel()
+	{
+		List<Mockquiz> list = new ArrayList<Mockquiz>();
+		HttpHeaders header = new HttpHeaders();
+		header.setBasicAuth(configuration.getUsername(), configuration.getPassword());
+		HttpEntity<String> requestEntity = new HttpEntity<String>( header);
+		list = restTemplate.exchange("http://localhost:9099/Mockquiz/getAllMockquiz",
+              HttpMethod.GET, requestEntity, new ParameterizedTypeReference<List<Mockquiz>>() { }).getBody();
+	   list = list.stream().filter(e->"easy".equals(e.getDifficulty())).collect(Collectors.toList());
+		return list;
+	} 
+	@GetMapping("/getAllMedium") 
+	public List<Mockquiz> mediumLevel()
+	{
+		List<Mockquiz> list = new ArrayList<Mockquiz>();
+		HttpHeaders header = new HttpHeaders();
+		header.setBasicAuth(configuration.getUsername(), configuration.getPassword());
+		HttpEntity<String> requestEntity = new HttpEntity<String>( header);
+		list = restTemplate.exchange("http://localhost:9099/Mockquiz/getAllMockquiz",
+              HttpMethod.GET, requestEntity, new ParameterizedTypeReference<List<Mockquiz>>() { }).getBody();
+	   list = list.stream().filter(e->"medium".equals(e.getDifficulty())).collect(Collectors.toList());
+		return list;
+	}
+	@GetMapping("/getAllExpert") 
+	public List<Mockquiz> expertLevel()
+	{
+		List<Mockquiz> list = new ArrayList<Mockquiz>();
+		HttpHeaders header = new HttpHeaders();
+		header.setBasicAuth(configuration.getUsername(), configuration.getPassword());
+		HttpEntity<String> requestEntity = new HttpEntity<String>( header);
+		list = restTemplate.exchange("http://localhost:9099/Mockquiz/getAllMockquiz",
+              HttpMethod.GET, requestEntity, new ParameterizedTypeReference<List<Mockquiz>>() { }).getBody();
+	   list = list.stream().filter(e->"expert".equals(e.getDifficulty())).collect(Collectors.toList());
+		return list;
+	}
+	@GetMapping("/questions")
+	public List<Mockquiz> questions(){
+		List<Mockquiz> list = new ArrayList<Mockquiz>();
+		HttpHeaders header = new HttpHeaders();
+		header.setBasicAuth(configuration.getUsername(), configuration.getPassword());
+		HttpEntity<String> requestEntity = new HttpEntity<String>( header);
+		list = restTemplate.exchange("http://localhost:9099/Mockquiz/getAllMockquiz",
+              HttpMethod.GET, requestEntity, new ParameterizedTypeReference<List<Mockquiz>>() { }).getBody();
+	   list = list.stream().filter(e->"expert".equals(e.getDifficulty())).collect(Collectors.toList());
+	   List<Mockquiz> ms2list=new ArrayList<Mockquiz>();
+	   ms2list.addAll(list);
+	   List<Mockquiz> ms1list=new ArrayList<Mockquiz>();
+			
+			for(int j=1;j<=10;j++)
+			{
+		
+		    RandomDataGenerator a=new RandomDataGenerator();
+		    int b=a.nextInt(1,10);
+		      System.out.println(a);
+		      ms1list.add( ms2list.get(b));
+		      
+			}
+			
+			
+		
+		
+	    System.out.println(ms1list);
+		return ms1list; 
+		
+	}
+}

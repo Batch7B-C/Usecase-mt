@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\sasid\Downloads\MyUsecaseWorks-master"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\SMproject"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\UserMicroWeb"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\User"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\StockPrice"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\spring-boot-zuulgatwayproxy"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\StockExchange"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\Sectors"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\IpoDetails"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\HelloWorld"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\Company"/>
+			<item value="C:\Users\sasid\Downloads\mt-branch-master\mt-branch-master\EurekaServer"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,44 @@
+package com.cts.project.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.cts.project.config.ServiceConfig;
+import com.cts.project.model.Mockquiz;
+import com.netflix.discovery.EurekaClient;
+@RestController
+@RequestMapping("/mockquiz")
+public class MockquizController {
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@Autowired
+	private EurekaClient eurekaClient;
+	
+	@Autowired
+	ServiceConfig configuration;
+	@GetMapping("/getAllEasy") 
+	public List<Mockquiz> easyLevel()
+	{
+		List<Mockquiz> list = new ArrayList<Mockquiz>();
+		HttpHeaders header = new HttpHeaders();
+		header.setBasicAuth(configuration.getUsername(), configuration.getPassword());
+		HttpEntity<String> requestEntity = new HttpEntity<String>( header);
+		list = restTemplate.exchange("http://localhost:9099/Mockquiz/getAllMockquiz",
+              HttpMethod.GET, requestEntity, new ParameterizedTypeReference<List<Mockquiz>>() { }).getBody();
+	    list = list.stream().filter(e->e.getDifficulty()=="easy").collect(Collectors.toList());
+	    System.out.println(list);
+		return list;
+	} 
+}
